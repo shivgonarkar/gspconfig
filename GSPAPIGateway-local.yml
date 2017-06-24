@@ -1,0 +1,26 @@
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+  routes:
+    GSPOAuth2Server:
+        path: /uaa/**
+        url: http://localhost:8081
+        stripPrefix: false
+        sensitiveHeaders:
+
+    GSPGstr1Service:
+        path: /gstr1s/**
+        serviceId: GSPGstr1Service
+        stripPrefix: false
+        sensitiveHeaders:
+
+    GSPInterfaceRestClient:
+        path: /interfacecl/**
+        serviceId: GSPInterfaceRestClient
+        stripPrefix: false
+        sensitiveHeaders:
+server:
+  port: 4000
